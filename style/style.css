@@ -477,7 +477,11 @@ h3 {
   border-radius: 6px;
 }
 
-.choices__item--choice:first-of-type {
+.choices__list--dropdown .choices__item {
+  padding-left: 16px;
+}
+
+.choices__item--choice {
   border-bottom: 1px solid #999999;
 }
 
