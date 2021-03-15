@@ -301,7 +301,7 @@ h3 {
   position: absolute;
   left: -22px;
   top: 5px;
-  background: url(../Img/search.svg);
+  background: url(../img/search.svg);
 }
 
 .inform-box-content-search-btn::after {
@@ -341,15 +341,15 @@ h3 {
 }
 
 .hero-container-img1 {
-  background-image: url(../Img/hero1.jpg);
+  background-image: url(../img/hero1.jpg);
 }
 
 .hero-container-img2 {
-  background-image: url(../Img/hero2.jpg);
+  background-image: url(../img/hero2.jpg);
 }
 
 .hero-container-img3 {
-  background-image: url(../Img/hero3.jpg);
+  background-image: url(../img/hero3.jpg);
 }
 
 .hero-box {
@@ -415,7 +415,7 @@ h3 {
 
 .gallery-container {
   margin-top: 70px;
-  background: url("../Img/gallary_background.jpg");
+  background: url("../img/gallary_background.jpg");
   background-size: cover;
 }
 
