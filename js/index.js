@@ -9,26 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('click', (el) => {
             if (el.target !== listItem[i]) {
                 itemClosed[i].classList.remove('inform-box-content-item-is-open');
-            };
+            }
         });
-    })
+    });
 
-    // let listItemIndex = [];
-
-    // for (let i = 0; i < listItem.length; i++) {
-    //     listItemIndex.push(listItem[i]);
-    //     listItem[i].addEventListener('click', function (e) {
-    //         let t = listItemIndex.indexOf(e.target);
-    //         itemClosed[t].classList.toggle('second-header-list-item-is-open');
-    //     });
-    // };
-    // for (let i = 0; i < listItem.length; i++) {
-    //     document.addEventListener('click', function (e) {
-    //         if (e.target !== listItem[i]) {
-    //             itemClosed[i].classList.remove('second-header-list-item-is-open');
-    //         };
-    //     });
-    // };
     languageIconIndex = [];
     const catalogDescription = document.querySelector('.catalog-description');
     const language = document.querySelectorAll('.language');
