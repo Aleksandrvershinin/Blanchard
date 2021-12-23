@@ -14,8 +14,11 @@
    <link rel="stylesheet" href="style/swiper-bundle.css">
    <script src="js/swiper-bundle.js"></script>
 
-   <link rel="stylesheet" href="style/simplebar.css" />
+   <link rel="stylesheet" href="/style/simplebar.css" />
    <script src="js/simplebar.min.js"></script>
+
+   <script src="js/inputmask.js"></script>
+   <script src="js/Just-validate.js"></script>
 
    <script defer src="js/index.js"></script>
    <link rel="stylesheet" href="style/normalize.css">
@@ -694,9 +697,16 @@
                   однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые
                   государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего
                   возрастает их статус бесполезности. Прежде всего, постоянное информационно-пропагандистское
+                  <span data-tooltip="Пример современных тенденций - современная методология разработки"
+                     class="project-description-tooltip">i</span>
                   обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности
                   принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
-                  исключительно в разрезе маркетинговых и финансовых предпосылок. Банальные, но неопровержимые выводы,
+                  <span
+                     data-tooltip="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции"
+                     class="project-description-tooltip">i</span>
+                  исключительно в разрезе маркетинговых и финансовых
+                  <span data-tooltip=" В стремлении повысить качество" class="project-description-tooltip">i</span>
+                  предпосылок. Банальные, но неопровержимые выводы,
                   а также представители современных социальных резервов призывают нас к новым свершениям, которые, в
                   свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости.
                   Подробнее: <a>blanchard-art.ru/projects/about</a>
@@ -756,20 +766,22 @@
                   </p>
                   <form class="contacts-form" action="">
                      <h3 class="contacts-form-heading">Заказать обратный звонок</h3>
-                     <input placeholder="Имя*" name="name" id="contacts-form-input-name" class="contacts-form-input"
-                        type="text">
-                     <input type="tel" placeholder="Телефон*" name="phone" id="contacts-form-input-phone"
-                        class="contacts-form-input">
+
+                     <input placeholder="Имя*" name="name" data-validate-field="name" id="contacts-form-input-name"
+                        class="contacts-form-input" type="text">
+
+                     <input type="tel" placeholder="Телефон*" data-validate-field="tel" name="phone"
+                        id="contacts-form-input-phone" class="contacts-form-input">
                      <button type="submit" class="btn contacts-form-btn">Заказать</button>
                   </form>
                   <div class="contacts-block-contacts">
                      <h3 class="contacts-block-contacts-heading">Связаться в один клик</h3>
                      <div class="contacts-block-contacts-links">
                         <div class="contacts-block-contact contacts-block-contact-wt">
-                           <a href="#"></a>
+                           <a target="_blank" href="https://wa.me/79000000000"></a>
                         </div>
                         <div class="contacts-block-contact contacts-block-contact-telegram">
-                           <a href="#"></a>
+                           <a target="_blank" href="tg://resolve?domain=skillboxru"></a>
                         </div>
                      </div>
                   </div>
@@ -789,13 +801,13 @@
             </div>
             <ul class="footer-social-list">
                <li class="footer-social-item-vk">
-                  <a class="footer-social-link" href="#"> </a>
+                  <a class="footer-social-link" href="https://vk.com"> </a>
                </li>
                <li class="footer-social-item-instagram">
-                  <a class="footer-social-link" href="#"></a>
+                  <a class="footer-social-link" href="https://www.instagram.com/"></a>
                </li>
                <li class="footer-social-item-fb">
-                  <a class="footer-social-link" href="#"></a>
+                  <a class="footer-social-link" href="https://www.facebook.com/"></a>
                </li>
             </ul>
          </div>
@@ -938,6 +950,34 @@
          myMap.controls.add(zoomControl);
          myMap.controls.add(geolocationControl);
       }
+
+
+      var selector = document.querySelector("#contacts-form-input-phone");
+      var im = new Inputmask("+7(999) 999-9999");
+      im.mask(selector);
+      new JustValidate('.contacts-form', {
+         rules: {
+            name: {
+               required: true,
+               minLength: 2,
+               maxLength: 20
+            },
+            tel: {
+               required: true,
+               function: (name, value) => {
+                  const phone = selector.inputmask.unmaskedvalue()
+                  return Number(phone) && phone.length === 10
+               }
+            },
+         },
+         messages: {
+            name: {
+               minLength: 'Поля имя не может содержать меньше двух символов'
+            },
+            tel: 'Пожалуйста укажите корректный телефон',
+         },
+      });
+
    </script>
 </body>
 
